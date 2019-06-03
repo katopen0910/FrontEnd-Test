@@ -1,0 +1,14 @@
+/*********menu***********/
+.menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+li.list-group-item-action{
+    text-align: center;
+}
+.detail-car-image{
+    height: 500px;
+    width: 700px;
+}
