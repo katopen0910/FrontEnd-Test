@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Test</title>
+</head>
+<body>
+        <div class="menu sticky-top p-1 bg-light">
+                <div class="nav d-flex justify-content-around">
+                <a href="#" class="nav-link pl-0">Home</a>
+                <a href="#app" class="nav-link pl-0">Categories</a>
+                <a href="#myimg" class="nav-link pl-0">Random</a>
+                </div>
+                </div>
+                
+                </div>
+    <div class="container" id="app">
+    <div class="menu pt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="search">Find your car</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="searh" 
+                        placeholder="Name, model..."
+                        v-model="search"
+                        >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-group">
+                    <li 
+                        v-for="(car, index) of filteredCars"
+                        class="list-group-item list-group-item-action"
+                        @click="selectCar(index)"
+                        :class="{'active': selectCarIndex === index}"
+                        >
+                        {{ car.name }}
+                    </li>
+                </ul>
+            </div>  
+        </div>
+    </div>
+    <div class="app pt-5 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-8 justify-content-center">
+                <h2> 
+                    {{ car.year }}
+                </h2>
+                <img 
+                :src="car.image" alt="" class="rounded detail-car-image">
+                <p>
+                    {{ car.owl }}
+                </p>
+                <p> 
+                    {{ car.tel }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="random" id="myimg">
+        <div class="row">
+            <div class="col-8">
+            <input type=button value="Random" onclick="created()">
+            <br>
+            <img :src="selectedImage" />
+        </div>
+    </div>
+</div>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="app.js"></script>      
+</body>
+</html>
